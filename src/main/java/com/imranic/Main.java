@@ -1,5 +1,6 @@
 package com.imranic;
 
+import com.imranic.leetcode.FindEvenDigitNumber;
 import com.imranic.leetcode.ValidParentheses;
 import com.imranic.practices.DateLab;
 import com.imranic.practices.LoopLab;
@@ -17,6 +18,7 @@ public class Main {
     }
 
     public static void leetCodeSolutions() {
-        ValidParentheses.run();
+        //ValidParentheses.run();
+        FindEvenDigitNumber.run();
     }
 }
