@@ -1,6 +1,7 @@
 package com.imranic;
 
 import com.imranic.algorithms.LinearSearch;
+import com.imranic.leetcode.MaximumWealth;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,11 +16,12 @@ public class Main {
     }
 
     public static void runAlgorithms() {
-        (new LinearSearch()).experiment();
+        //(new LinearSearch()).experiment();
     }
 
     public static void leetCodeSolutions() {
         //ValidParentheses.run();
         //FindEvenDigitNumber.run();
+        MaximumWealth.run();
     }
 }
