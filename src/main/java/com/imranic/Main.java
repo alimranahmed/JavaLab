@@ -1,15 +1,12 @@
 package com.imranic;
 
-import com.imranic.leetcode.FindEvenDigitNumber;
-import com.imranic.leetcode.ValidParentheses;
-import com.imranic.practices.DateLab;
-import com.imranic.practices.LoopLab;
+import com.imranic.algorithms.LinearSearch;
 
 public class Main {
     public static void main(String[] args) {
         runPractices();
-
         leetCodeSolutions();
+        runAlgorithms();
     }
 
     public static void runPractices() {
@@ -17,8 +14,12 @@ public class Main {
         //(new LoopLab()).experiment();
     }
 
+    public static void runAlgorithms() {
+        (new LinearSearch()).experiment();
+    }
+
     public static void leetCodeSolutions() {
         //ValidParentheses.run();
-        FindEvenDigitNumber.run();
+        //FindEvenDigitNumber.run();
     }
 }
