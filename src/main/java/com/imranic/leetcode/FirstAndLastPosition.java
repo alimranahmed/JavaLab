@@ -13,14 +13,17 @@ public class FirstAndLastPosition {
     }
 
     public int[] searchRange(int[] nums, int target) {
-        int start = search(nums, target, true);
-        int end = search(nums, target, false);
+        int[] ans = {-1, -1};
 
-        return new int[]{start, end};
+        ans[0] = search(nums, target, true);
+        if (ans[0] != -1) {
+            ans[1] = search(nums, target, false);
+        }
+
+        return ans;
     }
 
-    // binary search to return the index of target
-
+    // binary search to return the first/last occurrence index of target
     int search(int[] nums, int target, boolean findStartIndex) {
 
         int ans = -1;
