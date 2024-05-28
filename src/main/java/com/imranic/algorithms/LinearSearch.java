@@ -2,13 +2,16 @@ package com.imranic.algorithms;
 
 import com.imranic.practices.Lab;
 
-public class LinearSearch implements Lab {
+import java.util.Arrays;
 
-    @Override
-    public void experiment() {
+public class LinearSearch {
+
+    public static void run() {
         int[] nums = {5, 23, -11, 26, 60, 30};
         int target = 60;
         int foundIndex = search(nums, 60);
+        System.out.println("---Linear Search---");
+        System.out.println("List: "+ Arrays.toString(nums));
         System.out.println(target+" is found in index "+foundIndex);
     }
 
