@@ -1,12 +1,9 @@
 package com.imranic.algorithms;
 
-import com.imranic.practices.Lab;
-
 import java.util.Arrays;
 
 public class LinearSearch {
-
-    public static void run() {
+    public static void main(String[] args) {
         int[] nums = {5, 23, -11, 26, 60, 30};
         int target = 60;
         int foundIndex = search(nums, 60);

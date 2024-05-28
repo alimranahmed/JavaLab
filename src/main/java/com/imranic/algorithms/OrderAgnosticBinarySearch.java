@@ -3,8 +3,7 @@ package com.imranic.algorithms;
 import java.util.Arrays;
 
 public class OrderAgnosticBinarySearch {
-    public static void run() {
-
+    public static void main(String[] args) {
         System.out.println("----Order Agnostic Binary Search----");
 
         int[] list = {1, 5, 10, 20, 55, 66, 90, 102, 150};

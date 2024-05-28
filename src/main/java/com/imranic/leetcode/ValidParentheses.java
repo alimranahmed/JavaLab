@@ -7,8 +7,7 @@ import java.util.Stack;
 // 20. Valid Parentheses
 // https://leetcode.com/problems/valid-parentheses
 public class ValidParentheses {
-    public static void run() {
-
+    public static void main(String[] args) {
         String case1 = "(){}[()]";
         boolean isValid = (new ValidParentheses()).isValid(case1);
         System.out.println(case1+" is a valid expression: "+isValid);

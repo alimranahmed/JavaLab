@@ -3,8 +3,8 @@ package com.imranic.practices;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class DateLab implements Lab{
-    public void experiment() {
+public class DateLab{
+    public static void main(String[] args) {
         DateTimeFormatter isoFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("d MMM, yyyy");

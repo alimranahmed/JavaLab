@@ -3,7 +3,7 @@ package com.imranic.algorithms;
 import java.util.Arrays;
 
 public class BinarySearch {
-    public static void run() {
+    public static void main(String[] args) {
         int[] list = {1, 5, 10, 20, 55, 66, 90, 102, 150};
 
         System.out.println("----Binary Search----");
