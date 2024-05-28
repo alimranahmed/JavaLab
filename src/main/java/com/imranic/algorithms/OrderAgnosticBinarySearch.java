@@ -25,7 +25,6 @@ public class OrderAgnosticBinarySearch {
             return -1;
         }
 
-
         int start = 0;
         int end = list.length - 1;
         boolean isAsc = list[start] < list[end];

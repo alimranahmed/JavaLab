@@ -17,10 +17,6 @@ public class BinarySearch {
     }
 
     public int search(int[] list, int target) {
-        if (list.length == 0) {
-            return -1;
-        }
-
         int start = 0;
         int end = list.length - 1;
         while(start <= end) {
