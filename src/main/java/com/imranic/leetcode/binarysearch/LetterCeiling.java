@@ -1,4 +1,4 @@
-package com.imranic.leetcode;
+package com.imranic.leetcode.binarysearch;
 
 // 744. Find Smallest Letter Greater Than Target
 // https://leetcode.com/problems/find-smallest-letter-greater-than-target

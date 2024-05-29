@@ -1,4 +1,4 @@
-package com.imranic.leetcode;
+package com.imranic.leetcode.binarysearch;
 
 import java.util.Arrays;
 
