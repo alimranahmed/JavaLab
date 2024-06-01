@@ -1,8 +1,8 @@
-package com.imranic.leetcode.binarysearchmatrix;
+package com.imranic.algorithms;
 
 import java.util.Arrays;
 
-public class SearchRowColSortedMatrix {
+public class BinarySearchRowColSortedMatrix {
     public static void main(String[] args) {
         // This matrix is sorted by row and colum
         // more down(row++) you go value increases
@@ -15,7 +15,7 @@ public class SearchRowColSortedMatrix {
         };
 
         int target = 78;
-        int[] foundBlock = (new SearchRowColSortedMatrix()).search(matrix, target);
+        int[] foundBlock = (new BinarySearchRowColSortedMatrix()).search(matrix, target);
         System.out.println(Arrays.toString(foundBlock));
     }
 
