@@ -17,10 +17,13 @@ public class SelectionSort {
                     maxIndex = j;
                 }
             }
-
-            int temp = list[i];
-            list[i] = list[maxIndex];
-            list[maxIndex] = temp;
+            swap(list, maxIndex, i);
         }
+    }
+
+    public static void swap(int[] list, int first, int second) {
+        int temp = list[first];
+        list[first] = list[second];
+        list[second] = temp;
     }
 }
