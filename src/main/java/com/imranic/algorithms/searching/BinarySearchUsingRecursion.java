@@ -1,4 +1,4 @@
-package com.imranic.algorithms;
+package com.imranic.algorithms.searching;
 
 public class BinarySearchUsingRecursion {
     public static void main(String[] args) {

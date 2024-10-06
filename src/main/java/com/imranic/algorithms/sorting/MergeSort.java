@@ -1,4 +1,4 @@
-package com.imranic.practices.recursion;
+package com.imranic.algorithms.sorting;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package com.imranic.algorithms;
+package com.imranic.algorithms.sorting;
 
 import java.util.Arrays;
 

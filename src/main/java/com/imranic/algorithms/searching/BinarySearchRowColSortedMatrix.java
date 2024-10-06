@@ -1,4 +1,4 @@
-package com.imranic.algorithms;
+package com.imranic.algorithms.searching;
 
 import java.util.Arrays;
 
