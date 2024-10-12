@@ -11,6 +11,10 @@ public class CyclicSort {
         System.out.printf(Arrays.toString(list));
     }
 
+    // Cyclic sort means a range will be defined and those have to sorted
+    // For example: let say we have all the number between 5 - 10 but in an unsorted manner.
+    // Eg.. Input array: 6, 7, 5, 8, 10, 9
+    // All we have to do is sort them like output: 5, 6, 7, 8, 9, 10
     public static void sort(int[] list) {
         int i = 0;
 

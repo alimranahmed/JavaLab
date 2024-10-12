@@ -15,31 +15,31 @@ public class QuickSort {
     // Then repeat the same procedure for left and right side of the pivot
     // Which means after every pass we are putting the pivot element in the right place
     static void quickSort(int[] nums, int low, int high) {
-        if (low >= high) {
-            return;
-        }
-        int start = low;
-        int end = high;
-        int mid = start + (end - start) / 2;
-        int pivot = nums[mid];
+        if (low < high) {
+            int partitionIndex = partition(nums, low, high);
 
-        if (start <= end) {
-            while (nums[start] < pivot) {
-                start++;
-            }
-            while (nums[end] > pivot) {
-                end--;
-            }
+            quickSort(nums, low, partitionIndex-1);
+            quickSort(nums, partitionIndex+1, high);
         }
-
-        if (start <= end) {
-            int temp = nums[start];
-            nums[start] = nums[end];
-            nums[end] = temp;
-            start++;
-            end--;
-        }
-        quickSort(nums, low, end);
-        quickSort(nums, start, high);
     }
+
+    public static int partition(int[] nums, int low, int high) {
+        int pivot = nums[high];
+        int i = (low-1);
+        for (int j=low; j < high; j++) {
+            if (nums[j] <= pivot) {
+                i++;
+                int temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
+            }
+        }
+
+        int temp = nums[i+1];
+        nums[i+1] = nums[high];
+        nums[high] = temp;
+
+        return i+1;
+    }
+
 }
