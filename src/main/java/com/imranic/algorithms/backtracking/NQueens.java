@@ -33,7 +33,7 @@ public class NQueens {
             }
         }
 
-        // diagonal left
+        // diagonal up-left
         int maxLeft = Math.min(row, col);
         for (int i = 1; i <= maxLeft; i++) {
             if (board[row - i][col - i]) {
@@ -41,7 +41,7 @@ public class NQueens {
             }
         }
 
-        // diagonal right
+        // diagonal up-right
         int maxRight = Math.min(row, board.length - 1 - col);
         for (int i = 0; i <= maxRight; i++) {
             if (board[row - i][col + i]) {
@@ -57,7 +57,7 @@ public class NQueens {
                 if (hasQueen) {
                     System.out.print("Q ");
                 } else {
-                    System.out.print("X ");
+                    System.out.print("_ ");
                 }
             }
             System.out.println();
