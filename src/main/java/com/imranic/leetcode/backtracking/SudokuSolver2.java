@@ -23,28 +23,29 @@ public class SudokuSolver2 {
         if(board == null || board.length == 0) {
             return;
         }
-        solveUsingBackTracking(board);
-        //display(board);
+        solveUsingBackTracking(board, 0, 0);
+        display(board);
     }
 
-    private boolean solveUsingBackTracking(char[][] board) {
-        for (int row = 0; row < board.length; row++) {
-            for (int col = 0; col < board.length; col++) {
-                if (board[row][col] == '.') {
+    private boolean solveUsingBackTracking(char[][] board, int row, int col) {
+        for (int i = row; i < board.length; i++) {
+            for (int j = col; j < board.length; j++) {
+                if (board[i][j] == '.') {
                     for (int number = 1; number <= 9; number++) {
-                        if (isSafe(board, row, col, (char) (number + '0'))) {
-                            board[row][col] = (char) (number + '0');
-                            if (solveUsingBackTracking(board)) {
+                        if (isSafe(board, i, j, (char) (number + '0'))) {
+                            board[i][j] = (char) (number + '0');
+                            if (solveUsingBackTracking(board, i, j + 1)) {
                                 return true;
                             } else {
                                 // back track
-                                board[row][col] = '.';
+                                board[i][j] = '.';
                             }
                         }
                     }
                     return false;
                 }
             }
+            col = 0;
         }
         return true;
     }
@@ -59,16 +60,9 @@ public class SudokuSolver2 {
     }
 
     private boolean isSafe(char[][] board, int row, int col, char n) {
-        // Check row
+        // Check row and col
         for (int i = 0; i < board.length; i++) {
-            if (board[i][col] == n) {
-                return false;
-            }
-        }
-
-        // Check col
-        for (int i = 0; i < board.length; i++) {
-            if (board[row][i] == n) {
+            if (board[i][col] == n || board[row][i] == n) {
                 return false;
             }
         }
