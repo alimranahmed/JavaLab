@@ -22,4 +22,13 @@ public class ListNode {
         }
         node.next = new ListNode(val);
     }
+
+    public void print() {
+        ListNode node = this;
+        while (node != null) {
+            System.out.print(node.val+" -> ");
+            node = node.next;
+        }
+        System.out.println("END");
+    }
 }

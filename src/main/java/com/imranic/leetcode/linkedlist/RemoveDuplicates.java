@@ -11,12 +11,7 @@ public class RemoveDuplicates {
         head.addLast(3);
         head.addLast(3);
         head = (new RemoveDuplicates()).deleteDuplicates(head);
-        ListNode node = head;
-        while (node != null) {
-            System.out.print(node.val+" -> ");
-            node = node.next;
-        }
-        System.out.println("END");
+        head.print();
     }
 
     public ListNode deleteDuplicates(ListNode head) {
