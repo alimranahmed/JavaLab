@@ -11,11 +11,9 @@ public class LinedListCycle {
         node1.next = node;
         boolean hasCycle = new LinedListCycle().hasCycle(head);
         System.out.println(hasCycle);
-        int length = new LinedListCycle().findLengthOfCycle(head);
-        System.out.println("Length of cycle: "+length);
     }
 
-    // We use "fast and slow pointer" technique
+    // We use "fast and slow pointer" or "hare and tortoise" technique
     // The idea is: if two people(1 fast and 1 slow) walk in a non-circular road
     // If they start from the same point same time, then they will never meet
     // as one is fast another one is slow.
@@ -38,31 +36,5 @@ public class LinedListCycle {
             }
         }
         return false;
-    }
-
-    // This is not part of the LeetCode problem but something interesting
-    // Fast and slow pointer meeting each other inside a path of circle.
-    // There if the fast pointer stops there and slow pointer continue to move
-    // The steps the slow pointer takes to meet fast pointer again is th length of the circle
-    public int findLengthOfCycle(ListNode head) {
-        ListNode slow = head;
-        ListNode fast = head;
-        while(fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-            if (slow == fast) { // Cycle found
-                // Put a marker in the meeting point(tempSlow)
-                // Continue moving the slow pointer by one node
-                // If the meet again, we have the length!
-                int length = 0;
-                ListNode tempSlow = slow;
-                do {
-                    tempSlow = tempSlow.next;
-                    length++;
-                } while (tempSlow != slow);
-                return length;
-            }
-        }
-        return 0;
     }
 }
