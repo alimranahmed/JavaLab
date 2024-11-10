@@ -15,12 +15,13 @@ public class ListNode {
         this.next = next;
     }
 
-    public void addLast(int val) {
+    public ListNode addLast(int val) {
         ListNode node = this;
         while (node.next != null) {
             node = node.next;
         }
         node.next = new ListNode(val);
+        return node.next;
     }
 
     public void print() {
