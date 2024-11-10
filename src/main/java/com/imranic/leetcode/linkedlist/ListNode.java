@@ -32,4 +32,9 @@ public class ListNode {
         }
         System.out.println("END");
     }
+
+    @Override
+    public String toString() {
+        return ""+this.val;
+    }
 }
