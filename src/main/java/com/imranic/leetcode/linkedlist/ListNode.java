@@ -15,6 +15,17 @@ public class ListNode {
         this.next = next;
     }
 
+    public static ListNode of(int[] nums) {
+        if (nums.length < 1) {
+            return new ListNode();
+        }
+        ListNode head = new ListNode(nums[0]);
+        for (int i = 1; i < nums.length; i++) {
+            head.addLast(nums[i]);
+        }
+        return head;
+    }
+
     public ListNode addLast(int val) {
         ListNode node = this;
         while (node.next != null) {

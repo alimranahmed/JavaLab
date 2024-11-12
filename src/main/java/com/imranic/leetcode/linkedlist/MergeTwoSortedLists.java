@@ -6,13 +6,8 @@ import java.util.List;
 // https://leetcode.com/problems/merge-two-sorted-lists
 public class MergeTwoSortedLists {
     public static void main(String[] args) {
-        ListNode list1 = new ListNode(1);
-        list1.addLast(2);
-        list1.addLast(4);
-
-        ListNode list2 = new ListNode(1);
-        list2.addLast(3);
-        list2.addLast(4);
+        ListNode list1 = ListNode.of(new int[]{1, 2, 4});
+        ListNode list2 = ListNode.of(new int[]{1, 3, 4});
 
         ListNode mergedList = new MergeTwoSortedLists()
                 .mergeTwoLists(list1, list2);
