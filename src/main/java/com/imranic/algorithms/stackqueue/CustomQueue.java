@@ -1,28 +1,26 @@
-package com.imranic.leetcode.stackandqeueue;
+package com.imranic.algorithms.stackqueue;
 
-public class CircularQueue{
+public class CustomQueue {
     protected int[] data;
 
     private static final int DEFAULT_SIZE = 10;
 
     private int end = 0;
-    private int front = 0;
-    private int size = 0;
 
-    public CircularQueue() {
+    public CustomQueue() {
         this(DEFAULT_SIZE);
     }
 
-    public CircularQueue(int size) {
+    public CustomQueue(int size) {
         this.data = new int[size];
     }
 
     public boolean isFull() {
-        return size == data.length;
+        return end == data.length;
     }
 
     private boolean isEmpty() {
-        return size == 0;
+        return end == 0;
     }
 
     public boolean insert(int item) throws Exception {
@@ -30,8 +28,6 @@ public class CircularQueue{
             throw new Exception("The queue is full");
         }
         data[end++] = item;
-        end = end % data.length;
-        size++;
         return true;
     }
 
@@ -39,9 +35,11 @@ public class CircularQueue{
         if (isEmpty()) {
             throw new Exception("Queue is empty");
         }
-        int removed = data[front++];
-        front = front % data.length;
-        size--;
+        int removed = data[0];
+        for (int i = 1; i < end; i++) {
+            data[i-1] = data[i];
+        }
+        end--;
         return removed;
     }
 
@@ -49,20 +47,14 @@ public class CircularQueue{
         if (isEmpty()) {
             throw new Exception("Queue is empty");
         }
-        return data[front];
+        return data[0];
     }
 
     public String toString() {
-        if (isEmpty()) {
-            return "[Empty]";
-        }
         String output = "";
-        int i = front;
-        do {
+        for (int i = 0; i < end; i++) {
             output += data[i] + " <- ";
-            i++;
-            i %= data.length;
-        } while (i != end);
+        }
         output += "END";
         return output;
     }

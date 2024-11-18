@@ -1,26 +1,28 @@
-package com.imranic.leetcode.stackandqeueue;
+package com.imranic.algorithms.stackqueue;
 
-public class CustomQueue {
+public class CircularQueue{
     protected int[] data;
 
     private static final int DEFAULT_SIZE = 10;
 
     private int end = 0;
+    private int front = 0;
+    private int size = 0;
 
-    public CustomQueue() {
+    public CircularQueue() {
         this(DEFAULT_SIZE);
     }
 
-    public CustomQueue(int size) {
+    public CircularQueue(int size) {
         this.data = new int[size];
     }
 
     public boolean isFull() {
-        return end == data.length;
+        return size == data.length;
     }
 
     private boolean isEmpty() {
-        return end == 0;
+        return size == 0;
     }
 
     public boolean insert(int item) throws Exception {
@@ -28,6 +30,8 @@ public class CustomQueue {
             throw new Exception("The queue is full");
         }
         data[end++] = item;
+        end = end % data.length;
+        size++;
         return true;
     }
 
@@ -35,11 +39,9 @@ public class CustomQueue {
         if (isEmpty()) {
             throw new Exception("Queue is empty");
         }
-        int removed = data[0];
-        for (int i = 1; i < end; i++) {
-            data[i-1] = data[i];
-        }
-        end--;
+        int removed = data[front++];
+        front = front % data.length;
+        size--;
         return removed;
     }
 
@@ -47,14 +49,20 @@ public class CustomQueue {
         if (isEmpty()) {
             throw new Exception("Queue is empty");
         }
-        return data[0];
+        return data[front];
     }
 
     public String toString() {
-        String output = "";
-        for (int i = 0; i < end; i++) {
-            output += data[i] + " <- ";
+        if (isEmpty()) {
+            return "[Empty]";
         }
+        String output = "";
+        int i = front;
+        do {
+            output += data[i] + " <- ";
+            i++;
+            i %= data.length;
+        } while (i != end);
         output += "END";
         return output;
     }

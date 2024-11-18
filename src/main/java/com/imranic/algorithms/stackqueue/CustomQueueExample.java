@@ -1,4 +1,4 @@
-package com.imranic.leetcode.stackandqeueue;
+package com.imranic.algorithms.stackqueue;
 
 public class CustomQueueExample {
     public static void main(String[] args) throws Exception {

@@ -1,4 +1,4 @@
-package com.imranic.leetcode.stackandqeueue;
+package com.imranic.algorithms.stackqueue;
 
 public class CustomStack {
     protected int[] data;

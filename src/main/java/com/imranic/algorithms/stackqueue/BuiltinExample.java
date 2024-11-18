@@ -1,4 +1,4 @@
-package com.imranic.leetcode.stackandqeueue;
+package com.imranic.algorithms.stackqueue;
 
 import java.util.*;
 
