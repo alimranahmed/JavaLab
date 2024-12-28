@@ -128,16 +128,6 @@ public class AVLTree {
     }
 
     public void display() {
-        display(this.root, "Root Node: ");
-    }
-
-    private void display(Node node, String details) {
-        if (node == null) {
-            return;
-        }
-
-        System.out.println(details + node.value);
-        display(node.left, "Left child of "+node.value + " : ");
-        display(node.right, "Right child of "+node.value + " : ");
+        BinaryTreePrinter.printTree(this.root);
     }
 }

@@ -1,5 +1,8 @@
 package com.imranic.algorithms.tree;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BinarySearchTree {
 
     private Node root;
@@ -45,18 +48,40 @@ public class BinarySearchTree {
         populatedSorted(nums, mid + 1, end);
     }
 
-    public void display() {
-        display(this.root, "Root Node: ");
+    public List<Integer> inOrder() {
+        List<Integer> list = new ArrayList<>();
+        this.inOrder(this.root, list);
+        return list;
     }
 
-    private void display(Node node, String details) {
+    public void inOrder(Node node, List<Integer> list) {
         if (node == null) {
             return;
         }
 
-        System.out.println(details + node.value);
-        display(node.left, "Left child of "+node.value + " : ");
-        display(node.right, "Right child of "+node.value + " : ");
+        this.inOrder(node.left, list);
+        list.add(node.value);
+        this.inOrder(node.right, list);
+    }
+
+    public List<Integer> preOrder() {
+        List<Integer> list = new ArrayList<>();
+        this.preOrder(this.root, list);
+        return list;
+    }
+
+    public void preOrder(Node node, List<Integer> list) {
+        if (node == null) {
+            return;
+        }
+        list.add(node.value);
+        this.preOrder(node.left, list);
+        this.preOrder(node.right, list);
+
+    }
+
+    public void display() {
+        BinaryTreePrinter.printTree(this.root);
     }
 
     public boolean isEmpty() {
@@ -68,6 +93,10 @@ public class BinarySearchTree {
             return -1;
         }
         return node.height;
+    }
+
+    public int height() {
+        return this.height(this.root);
     }
 
     public boolean balanced() {
