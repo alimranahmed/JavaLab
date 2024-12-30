@@ -80,6 +80,21 @@ public class BinarySearchTree {
 
     }
 
+    public List<Integer> postOrder() {
+        List<Integer> list = new ArrayList<>();
+        this.postOrder(this.root, list);
+        return list;
+    }
+
+    public void postOrder(Node node, List<Integer> list) {
+        if (node == null) {
+            return;
+        }
+        this.postOrder(node.left, list);
+        this.postOrder(node.right, list);
+        list.add(node.value);
+    }
+
     public void display() {
         BinaryTreePrinter.printTree(this.root);
     }

@@ -13,6 +13,7 @@ public class ExampleRunner {
         System.out.println("Height: " + bst.height());
         System.out.println("In-Order: " + bst.inOrder());
         System.out.println("Pre-Order: " + bst.preOrder());
+        System.out.println("Post-Order: " + bst.postOrder());
     }
 
     private static void runAvlTree() {
