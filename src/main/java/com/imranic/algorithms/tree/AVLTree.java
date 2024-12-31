@@ -3,22 +3,22 @@ package com.imranic.algorithms.tree;
 // This is a self-balancing binary search tree
 // After insertion in insert() method, we are balancing the tree using rotation
 public class AVLTree {
-    private Node root;
+    private TreeNode root;
 
     public void insert(int value) {
         root = insert(value, root);
     }
 
-    private Node insert(int value, Node node) {
+    private TreeNode insert(int value, TreeNode node) {
         if (node == null) {
-            return new Node(value);
+            return new TreeNode(value);
         }
 
-        if (value < node.value) {
+        if (value < node.val) {
             node.left = insert(value, node.left);
         }
 
-        if (value > node.value) {
+        if (value > node.val) {
             node.right = insert(value, node.right);
         }
         node.height = Math.max(height(node.left), height(node.right)) + 1;
@@ -26,7 +26,7 @@ public class AVLTree {
         return rotate(node);
     }
 
-    private Node rotate(Node node) {
+    private TreeNode rotate(TreeNode node) {
         if (height(node.left) - height(node.right) > 1) {
             // left heavy
             if (height(node.left.left) - height(node.left.right) > 0) {
@@ -55,9 +55,9 @@ public class AVLTree {
         return node;
     }
 
-    public Node leftRotate(Node parent) {
-        Node child = parent.right;
-        Node t = child.left;
+    public TreeNode leftRotate(TreeNode parent) {
+        TreeNode child = parent.right;
+        TreeNode t = child.left;
 
         child.left = parent;
         parent.right = t;
@@ -67,9 +67,9 @@ public class AVLTree {
         return child;
     }
 
-    public Node rightRotate(Node parent) {
-        Node child = parent.left;
-        Node subTree = child.right;
+    public TreeNode rightRotate(TreeNode parent) {
+        TreeNode child = parent.left;
+        TreeNode subTree = child.right;
         child.right= parent;
         parent.left = subTree;
 
@@ -107,7 +107,7 @@ public class AVLTree {
         return this.height(this.root);
     }
 
-    public int height(Node node) {
+    public int height(TreeNode node) {
         if (node == null) {
             return -1;
         }
@@ -118,7 +118,7 @@ public class AVLTree {
         return balanced(root);
     }
 
-    public boolean balanced(Node node) {
+    public boolean balanced(TreeNode node) {
         if (node == null) {
             return true;
         }

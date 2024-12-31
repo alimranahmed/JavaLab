@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BinaryTreePrinter {
-    public static void printTree(Node root) {
+    public static void printTree(TreeNode root) {
         List<List<String>> lines = new ArrayList<>();
-        List<Node> level = new ArrayList<>();
-        List<Node> next = new ArrayList<>();
+        List<TreeNode> level = new ArrayList<>();
+        List<TreeNode> next = new ArrayList<>();
         level.add(root);
         int nodeCount = 1;
 
@@ -18,13 +18,13 @@ public class BinaryTreePrinter {
 
             nodeCount = 0;
 
-            for (Node n : level) {
+            for (TreeNode n : level) {
                 if (n == null) {
                     line.add(null);
                     next.add(null);
                     next.add(null);
                 } else {
-                    String nodeValue = String.valueOf(n.value);
+                    String nodeValue = String.valueOf(n.val);
                     line.add(nodeValue);
                     if (nodeValue.length() > widest) widest = nodeValue.length();
 
@@ -40,7 +40,7 @@ public class BinaryTreePrinter {
 
             lines.add(line);
 
-            List<Node> tmp = level;
+            List<TreeNode> tmp = level;
             level = next;
             next = tmp;
             next.clear();

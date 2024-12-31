@@ -5,22 +5,26 @@ import java.util.List;
 
 public class BinarySearchTree {
 
-    private Node root;
+    public TreeNode root;
+
+    public TreeNode getRoot() {
+        return this.root;
+    }
 
     public void insert(int value) {
         root = insert(value, root);
     }
 
-    private Node insert(int value, Node node) {
+    private TreeNode insert(int value, TreeNode node) {
         if (node == null) {
-            return new Node(value);
+            return new TreeNode(value);
         }
 
-        if (value < node.value) {
+        if (value < node.val) {
             node.left = insert(value, node.left);
         }
 
-        if (value > node.value) {
+        if (value > node.val) {
             node.right = insert(value, node.right);
         }
         node.height = Math.max(height(node.left), height(node.right)) + 1;
@@ -54,13 +58,13 @@ public class BinarySearchTree {
         return list;
     }
 
-    public void inOrder(Node node, List<Integer> list) {
+    public void inOrder(TreeNode node, List<Integer> list) {
         if (node == null) {
             return;
         }
 
         this.inOrder(node.left, list);
-        list.add(node.value);
+        list.add(node.val);
         this.inOrder(node.right, list);
     }
 
@@ -70,11 +74,11 @@ public class BinarySearchTree {
         return list;
     }
 
-    public void preOrder(Node node, List<Integer> list) {
+    public void preOrder(TreeNode node, List<Integer> list) {
         if (node == null) {
             return;
         }
-        list.add(node.value);
+        list.add(node.val);
         this.preOrder(node.left, list);
         this.preOrder(node.right, list);
 
@@ -86,13 +90,13 @@ public class BinarySearchTree {
         return list;
     }
 
-    public void postOrder(Node node, List<Integer> list) {
+    public void postOrder(TreeNode node, List<Integer> list) {
         if (node == null) {
             return;
         }
         this.postOrder(node.left, list);
         this.postOrder(node.right, list);
-        list.add(node.value);
+        list.add(node.val);
     }
 
     public void display() {
@@ -103,7 +107,7 @@ public class BinarySearchTree {
         return root == null;
     }
 
-    public int height(Node node) {
+    public int height(TreeNode node) {
         if (node == null) {
             return -1;
         }
@@ -118,7 +122,7 @@ public class BinarySearchTree {
         return balanced(root);
     }
 
-    public boolean balanced(Node node) {
+    public boolean balanced(TreeNode node) {
         if (node == null) {
             return true;
         }
